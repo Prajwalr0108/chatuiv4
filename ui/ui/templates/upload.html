@@ -1,0 +1,34 @@
+<style>
+.hero .hero-text p {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+  margin-right: auto;
+    width: 50%;
+  }
+
+</style>
+{% extends 'stream.html' %}
+
+{% block content %}
+  <h2>UPLOAD</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <input type="file" name="document">
+    <button type="submit">Upload file</button>
+  </form>
+<div class="hero-text">
+  {% if url %}
+  
+  <!-- to print image url:  <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p> --> 
+    <div class="center">
+    <img  src="{{ url }}" alt="connect" style="max-height:800px"></div>
+  {% endif %}
+{% endblock %}
+</div>

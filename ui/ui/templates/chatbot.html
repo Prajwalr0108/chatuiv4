@@ -1,0 +1,185 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!Doctype html>
+<html lang="en">
+
+<head>
+  <title>chatbot</title>
+   
+   
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+  <div class="header header-footer">CHATBOT</div>
+  <style>
+    body {
+  font-family: "Raleway", sans-serif;
+  background-color: white;
+  height: 710px;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.comments-main {
+  background: #fff;
+}
+.comment time,
+.comment:hover time,
+.icon-rocknroll,
+.like-count {
+  -webkit-transition: 0.25s opacity linear;
+  transition: 0.25s opacity linear;
+}
+.comments-main ul li {
+  list-style: none;
+}
+.comments .main_button {
+  border-radius: 15px;
+  background: #ff008c;
+  border: 1px solid;
+  padding: 10px 10px;
+  box-shadow: 2px 5px #fc8eac;
+}
+.comments .comment:hover time {
+  opacity: 1;
+}
+.comments .user-img img {
+  width: 50px;
+  height: 50px;
+}
+.comments .comment h4 {
+  display: inline-block;
+  font-size: 16px;
+}
+.comments .comment h4 a {
+  color: #404040;
+  text-decoration: none;
+}
+.comments .comment .icon-rocknroll {
+  color: #545454;
+  font-size: 0.85rem;
+}
+.comments .comment .icon-rocknroll:hover {
+  opacity: 0.5;
+}
+.comments .comment time,
+.comments .comment .like-count,
+.comments .comment .icon-rocknroll {
+  font-size: 0.75rem;
+  opacity: 0;
+}
+.comments .comment time,
+.comments .comment .like-count {
+  font-weight: 300;
+}
+.comments .comment p {
+  font-size: 13px;
+}
+.comments .comment p .reply {
+  color: #ff008c;
+  cursor: pointer;
+}
+.comments .comment .active {
+  opacity: 1;
+}
+.icon-rocknroll {
+  background: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 0.125rem 0 0;
+}
+.comments .comment:hover .icon-rocknroll,
+.comments .comment:hover .like-count {
+  opacity: 1;
+}
+.comment-box-main {
+  background: white;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .comments .comment h4 {
+    font-size: 12px;
+  }
+  .comments .comment p {
+    font-size: 11px;
+  }
+  .comment-box-main .send-btn button {
+    margin-left: 5px;
+	color: white;
+    width: 50%;
+  }
+}
+.header-footer {
+  position: fixed;
+  left: 0;
+
+  width: 100%;
+  background-color: #000033;
+  color: white;
+  text-align: center;
+}
+.header {
+  top: 0;
+  height: 80px;
+  font-size: 30px;
+}
+.footer {
+  bottom: 0;
+}
+.senbtn{
+	background-color: #ff008c;
+	color: white;
+	
+}
+
+.btn-main {
+  height: 35px;
+  width: 100px;
+  margin: 5px;
+  border-radius: 12px;
+  padding: 5px 10px;
+  background-color: #ff008c;
+  color: #000033;
+  text-align: center;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 2px 5px #fc8eac;
+}
+  </style>
+</head>
+
+<body style="background-color: white;">
+  
+ 
+  <div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-12 comments-main pt-4 rounded">
+      <ul class="p-0">
+        <li>
+          <div class="row comments ">
+            <div class="col-md-2 col-sm-2 col-3 text-center user-img">
+              <img id="profile-photo" src="https://images-platform.99static.com//X0F3CDfCL6LcdPsSJNtRXSGn86Q=/108x1101:902x1895/fit-in/500x500/99designs-contests-attachments/126/126736/attachment_126736972" class="rounded-circle" />
+            </div>
+
+            <button class="col-md-9 col-sm-9 col-9 main_button  rounded mb-2" id="Main_btn" onclick="create_new()">
+              <p class="mb-0 text-white">Hola! how can i help you ?</p>
+            </button>
+
+          </div>
+
+        </li>
+
+        <div class="row comment-box-main p-3 rounded-bottom footer header-footer">
+          <div class="col-md-9 col-sm-9 col-9 pr-0 comment-box">
+            <input id="text_data" type="text" class="form-control" placeholder="comment ...." />
+          </div>
+          <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
+            <button onclick=get_text() class="senbtn">Send</button>
+          </div>
+        </div>
+        
+
+</body>
+
+</html>

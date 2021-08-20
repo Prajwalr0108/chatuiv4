@@ -1,0 +1,451 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Aiotel</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+       
+
+            <!-- Template Stylesheet -->
+        
+       
+     
+        <style>
+            html {
+                    background-color: #ffffff;
+                 }
+            body {margin: 0;}
+       
+    ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 20px;
+        overflow: hidden;
+        background-color: #ff008c;
+            
+    
+      }
+      
+      ul.topnav li {float: left;}
+      
+      ul.topnav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 0px 10px;
+        text-decoration: none;
+      }
+      
+      ul.topnav li a:hover:not(.active) {color: #000033;}
+                                   
+      
+      ul.topnav li a.active {background-color: #000033;}
+                                    
+      
+      ul.topnav li.right {float: right;}
+      
+      @media screen and (max-width: 600px) {
+        ul.topnav li.right, 
+        ul.topnav li {float: none;}
+      }
+      .noborder {
+                 margin: auto;
+                 width: 50%;
+                 padding-top: 150px;
+                 text-align: center;
+      }
+      .bot {
+                                float: right;
+                                width: 300px;
+                               
+                                padding: 10px;
+                 margin: auto;
+                 width: 50%;
+                 padding: 5px;
+                 text-align: center;
+      }
+      .dropbtn {
+                            background-color: #000033;
+                            color: white;
+                            padding: 16px;
+                            font-size: 16px;
+                            border: none;
+                            cursor: pointer;
+                            }
+
+                            .dropdown {
+                            position: relative;
+                            display: inline-block;
+                            }
+
+                            .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            background-color: #cecef5;
+                            min-width: 160px;
+                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                            z-index: 1;
+                            }
+
+                            .dropdown-content a {
+                            color: #ff008c;
+                            padding: 12px 16px;
+                            text-decoration: none;
+                            display: block;
+                            }
+
+                            .dropdown-content a:hover {background-color: #f1f1f1}
+
+                            .dropdown:hover .dropdown-content {
+                            display: block;
+                            }
+
+                            .dropdown:hover .dropbtn {
+                            background-color: #000033;
+                            }
+                            .rightt {
+                                float: left;
+                                width: 300px;
+                               
+                                padding: 70px;
+                                }
+                                *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button{
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+section{
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+h1{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+
+p{
+    font-size: 2rem;
+}
+
+
+.chat-btn{
+    position: fixed;
+    right:50px;
+    bottom: 50px;
+    background: dodgerblue;
+    color: white;
+    width:60px;
+    height: 60px;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+}
+
+.chat-btn:hover, .submit:hover, #emoji-btn:hover{
+    opacity: 1;
+}
+
+.chat-popup{
+    display: none;
+    position: fixed;
+    bottom:80px;
+    right:120px;
+    height: 400px;
+    width: 300px;
+    background-color: white;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.75rem;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    border-radius: 10px;
+}
+
+.show{
+    display: flex;
+}
+
+.chat-area{
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.income-msg{
+    display: flex;
+    align-items: center;
+}
+
+.avatar{
+    width:45px;
+    height: 45px;
+   
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.income-msg .msg{
+    background-color: #000033;
+    color: white;
+    padding:0.5rem;
+    border-radius: 25px;
+    margin-left: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.badge{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color:white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:-10px;
+    right: -10px;
+}
+
+.input-area{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"]{
+    width:100%;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    border-radius: 5px;
+    height: 2.2rem;
+}
+
+#emoji-btn{
+    position: absolute;
+    font-size: 1.2rem;
+    background: transparent;
+    right: 50px;
+    top:2px;
+    opacity:0.5;
+}
+
+.submit{
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.5rem;
+    background-color: green;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    opacity: 0.7;
+}
+
+
+.out-msg{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.my-msg{
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.75rem;
+    padding: 0.5rem;
+    background-color: #ddd;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    word-break: break-all;
+}
+
+
+@media (max-width:500px){
+
+    .chat-popup{
+        bottom: 120px;
+        right:10%;
+        width: 80vw;
+    }
+}
+      
+
+
+      </style>
+      </head>
+      <body style="background-color: white;">
+      
+      
+      
+      <ul class="topnav">
+
+       <b> <li><a class="active" href="#">HOME</a></li></b>
+       <b><li><a href="#">CONTACT</a></li></b>
+       {% if user.is_authenticated %}
+       <li>Hello, {{user.first_name}}</li>
+       <li><a href="accounts/logout">LOGOUT</a></li>
+       {% else %}	
+        <b><li class="right"><a href="accounts/register">REGISTER</a></li></b>
+        <b> <li class="right"><a href="accounts/login">LOGIN</a></li></b>
+       {% endif %}
+      </ul>
+      
+     
+                   
+<div class="rightt">
+      <div class="dropdown">
+        <button class="dropbtn" onclick="changeImage()">ID CARD ↓</button>
+        <div class="dropdown-content">
+        <a href="{% url 'stream' %}">LICENSE</a>
+        <a href="{% url 'stream' %}">MY NUMBER</a>
+        <a href="{% url 'stream' %}">RESIDENCE</a>
+        </div>
+      </div>
+    </div>
+                        <div class="noborder">
+						
+                            <img height="400px" width ="400px" src="{% static 'facerecog.jpg' %}" id="myImage">
+                            <h2 id="nameid"></h2>
+                        </div>
+                   
+            
+       
+        
+
+    <script>
+        function changeImage() {
+            var image = document.getElementById('myImage');
+			var name='';
+            if (image.src.match("{% static '6.png' %}")) 
+                {
+                     image.src ="{% static 'facerecog.jpg' %}";}
+            else {
+                     image.src = "{% static '6.png' %}"; }
+			
+            
+            var stuff=new Array("{{names}}");
+          
+
+		
+			/*for(i=0;i<stuff.length;i++)
+			{
+			
+			console.log(stuff[i]);
+			name=name+stuff[i];
+			}*/
+			console.log('displaying name',name);
+			document.getElementById('nameid').innerHTML=stuff[0];
+        
+			//return name;
+
+
+        }
+       </script>
+       <script>
+           function samp(){
+            console.log("hello")
+           }
+       </script>
+      
+
+         <section>
+           
+    
+            <button class="chat-btn"> 
+                <i class="material-icons"> comment </i>
+            </button>
+    
+            <div class="chat-popup">
+                <div class="badge">1</div>
+                <div class="chat-area">
+                
+                 <div class="income-msg">
+                     <img src="{%static 'img/person.jpg' %}" class="avatar" alt="">
+                     <span class="msg"> Hi, How can I help you?</span>
+                 </div>   
+                </div>
+               
+                <div class="input-area">
+                    <input type="text">
+                    <button id="emoji-btn"> &#127773;</button>
+                   
+                    <button id="emoji-btn"> &#127773;</button>
+                
+                    <button class="submit"> <i class="material-icons"> send</i></button>
+                </div>
+            </div>
+        </section>
+       
+           
+
+       
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.1.1/dist/index.min.js"></script>
+        <script>
+            const popup = document.querySelector('.chat-popup');
+            const chatBtn = document.querySelector('.chat-btn');
+            const submitBtn = document.querySelector('.submit');
+            const chatArea = document.querySelector('.chat-area');
+            const inputElm = document.querySelector('input');
+            const emojiBtn = document.querySelector('#emoji-btn');
+            const picker = new EmojiButton();
+
+
+// Emoji selection  
+window.addEventListener('DOMContentLoaded', () => {
+
+    picker.on('emoji', emoji => {
+      document.querySelector('input').value += emoji;
+    });
+  
+    emojiBtn.addEventListener('click', () => {
+      picker.togglePicker(emojiBtn);
+    });
+  });   
+   //   chat button toggler 
+
+chatBtn.addEventListener('click', ()=>{
+  popup.classList.toggle('show');
+})
+
+// send msg 
+submitBtn.addEventListener('click', ()=>{
+  let userInput = inputElm.value;
+  
+
+  let temp = `<div class="out-msg">
+  <span class="my-msg">${userInput}</span>
+  <img src="{% static 'img/me.jpg' %}" class="avatar">
+  </div>`;
+ 
+
+  //let data_out = userInput
+  //console.log(data_out);
+  chatArea.insertAdjacentHTML("beforeend", temp);
+  inputElm.value = '';
+})
+   
+</script>
+       
+         
+    
+        
+    </body>
+</html>

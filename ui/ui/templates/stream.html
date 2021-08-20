@@ -1,0 +1,169 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Aiotel</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+     
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        
+
+        <!-- Template Stylesheet -->
+        
+        <link href="{% static 'css/dropdown.css' %}" rel="stylesheet">
+        <style>
+             html {
+                    background-color: #ffffff;
+}
+            body {margin: 0;}
+       
+    ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 20px;
+        overflow: hidden;
+        background-color: #ff008c;
+            
+    
+      }
+      
+      ul.topnav li {float: center;}
+      
+      ul.topnav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 0px 10px;
+        text-decoration: none;
+      }
+      
+      ul.topnav li a:hover:not(.active) {color: #000033;}
+                                   
+      
+      ul.topnav li a.active {background-color: #000033;}
+                                    
+      
+      ul.topnav li.right {float: right;}
+      
+      @media screen and (max-width: 600px) {
+        ul.topnav li.right, 
+        ul.topnav li {float: none;}
+      }
+      .noborder {
+                 margin: auto;
+                 width: 50%;
+                 padding-top: 10px;
+                 text-align: center;
+      }
+      .heading {
+                 margin: auto;
+                 width: 50%;
+                 padding-top: 10px;
+                 text-align: center;
+      }
+      .imgcenter {
+                 margin: auto;
+                 width: 50%;
+                 padding-top: 70px;
+                 text-align: center;
+      }
+      .bot {
+                                float: right;
+                                width: 300px;
+                               
+                                padding: 10px;
+                 margin: auto;
+                 width: 50%;
+                 padding: 5px;
+                 text-align: center;
+      }
+      .dropbtn {
+                            background-color: #000033;
+                            color: white;
+                            padding: 16px;
+                            font-size: 16px;
+                            border: none;
+                            cursor: pointer;
+                            }
+
+                            .dropdown {
+                            position: relative;
+                            display: inline-block;
+                            }
+
+                            .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            background-color: #cecef5;
+                            min-width: 160px;
+                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                            z-index: 1;
+                            }
+
+                            .dropdown-content a {
+                            color: #ff008c;
+                            padding: 12px 16px;
+                            text-decoration: none;
+                            display: block;
+                            }
+
+                            .dropdown-content a:hover {background-color: #f1f1f1}
+
+                            .dropdown:hover .dropdown-content {
+                            display: block;
+                            }
+
+                            .dropdown:hover .dropbtn {
+                            background-color: #000033;
+                            }
+                            .rightt {
+                                float: left;
+                                width: 300px;
+                                padding-top: 80px;
+                                padding-left: 80px;
+                                }
+        </style>
+         
+    </head>
+    <body style="background-color: white;">
+      <ul class="topnav">
+        
+        <div class="heading">
+
+        <b><li><h1><a href ="#">FACE Recognition And OCR</a></li></h1></b>
+      </div>
+       </ul>
+       
+           <div class="rightt">
+             <a  href="{% url 'table' %}">Authentication</a>
+            </div>
+                  </div>
+                  <!-- initiating webcam feed in html page by calling a function -->
+                
+                
+                
+                <div class="imgcenter">
+                     
+                  <img height="400px" width="400px" src="{% url 'show' %}"> <!--{% url 'show' %}-->
+                </div> 
+                <div class="noborder">
+                    {% block content %}
+                    {% endblock %}
+                        
+                            <a  href="{% url 'upload' %}"><div class="noborder">UPLOAD FILE</div></a>
+                           
+                    </div>
+                </div>
+        
+    </div>
+    </body>
+    </html>
